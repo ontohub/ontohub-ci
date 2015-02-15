@@ -65,11 +65,6 @@ RUN sudo rm /tmp/setup_rbenv.bash
 RUN sudo locale-gen en_US.UTF-8
 RUN sudo dpkg-reconfigure locales
 
-# jenkins setup
-ADD http://mirrors.jenkins-ci.org/war/latest/jenkins.war /opt/jenkins.war
-RUN sudo chown jenkins:jenkins /opt/jenkins.war
-RUN sudo chmod 644 /opt/jenkins.war
-
 # add entrypoint script
 ADD run_jenkins.bash /home/jenkins/
 RUN sudo chown jenkins:jenkins /home/jenkins/run_jenkins.bash
@@ -86,3 +81,12 @@ EXPOSE 8080
 
 ENTRYPOINT /bin/bash /home/jenkins/run_jenkins.bash
 CMD [""]
+
+# install previously missing packages
+RUN sudo apt-get update && sudo apt-get install libxml2-dev && sudo apt-get clean
+
+# jenkins installation/update
+RUN sudo rm -f /opt/jenkins.war   # remove jenkins if it already exists
+RUN sudo wget http://mirrors.jenkins-ci.org/war/latest/jenkins.war -O /opt/jenkins.war
+RUN sudo chmod 644 /opt/jenkins.war
+RUN sudo chown jenkins:jenkins /opt/jenkins.war
