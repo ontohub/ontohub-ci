@@ -83,8 +83,8 @@ ENTRYPOINT /bin/bash /home/jenkins/run_jenkins.bash
 CMD [""]
 
 # install previously missing packages
-RUN sudo apt-get update && sudo apt-get install libxml2-dev && sudo apt-get clean
-RUN sudo apt-get update && sudo apt-get install phantomjs && sudo apt-get clean
+RUN sudo apt-get update && sudo apt-get install -y libxml2-dev && sudo apt-get clean
+RUN sudo apt-get update && sudo apt-get install -y phantomjs && sudo apt-get clean
 
 # jenkins installation/update
 RUN sudo rm -f /opt/jenkins.war   # remove jenkins if it already exists
