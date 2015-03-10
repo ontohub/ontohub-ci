@@ -29,7 +29,7 @@ Quite at the end of the Dockerfile, we run the command
 sudo chown -R jenkins:jenkins /data
 ```
 which has no effect before starting the instance for the first time. That's why the permissions on the mounted data directory `/home/ontohub/ontohub-ci-data` are wrong. As a workaround one can do the following:
-  1. Remove the last three commands in the Dockerfile (all after the `chown`)
+  1. Remove all the commands in the Dockerfile after the `sudo chown -R jenkins:jenkins /data`
   2. Build the container with the command from the section [Installation](#installation)
   3. Run the container with the command from the section [Starting Jenkins](#starting-jenkins)
   4. Put the last three commands back into the Dockerfile
