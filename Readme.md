@@ -46,7 +46,7 @@ Now, the container should be setup and running with the correct permissions.
     * **Github Authentication plugin** allows for OAuth via GitHub.
     * **GitHub plugin** adds general GitHub integration.
     * **GitHub pull request builder plugin** adds support for GitHub webooks, i.e. to build automatically when a pull request is opened or someone pushed into a pull requst.
-    * **Notification Plugin** enables comminication with [gitter](https://gitter.im). See gitter integration settings for further instructions.
+    * **Notification Plugin** enables comminication with [gitter](https://gitter.im). See gitter integration settings for further instructions. (The Jenkins Notification plugin has a bug, so if you encounter a `IndexOutOfBoundsException`, make sure you configure the project to send at least one log line. The default is 0.)
 
 ## Security
 There are two steps required to fully integrate Jenkins with GitHub.
