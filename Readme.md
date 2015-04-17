@@ -135,6 +135,7 @@ source ~/.bashrc
 sudo hets -update
 bundle install -j4
 redis-cli flushdb
+spec/fixtures/vcr/hets-out/
 bundle exec rake db:migrate:reset
 RAILS_ENV=test bundle exec rake db:migrate:reset || true
 SPEC_OPTS="--color" CUCUMBER_OPTS="--color" ELASTIC_TEST_PORT=9200 DISPLAY=localhost:1.0 xvfb-run bundle exec rake
