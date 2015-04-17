@@ -15,11 +15,11 @@ docker build -t ontohub-ci /home/ontohub/ontohub-ci
 # Starting Jenkins
 ```bash
 DATA_DIR=/home/ontohub/ontohub-ci-data
-docker run -d -P -v $DATA_DIR:/data ontohub-ci
+docker run -d -p 49153:8080 -v $DATA_DIR:/data ontohub-ci
 ```
-The jenkins Port 8080 inside the container will be mapped to another port of the host.
-To see which port is used, run `docker ps`. Let's assume, the port is `49153`.
-Then you can get to the web interface by opening `http://hostname:49153` and start [configuring jenkins](#configuring-jenkins).
+The jenkins Port 8080 inside the container will be mapped to the port 49153 of the host.
+To see information on the running container, execute `docker ps`.
+Finally, you can get to the web interface by opening `http://hostname:49153` and start [configuring jenkins](#configuring-jenkins).
 
 
 # Caveats
