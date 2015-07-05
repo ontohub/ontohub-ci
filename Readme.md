@@ -139,5 +139,6 @@ spec/fixtures/vcr/hets-out/
 rm -rf spec/fixtures/vcr/hets-out/
 bundle exec rake db:migrate:reset
 RAILS_ENV=test bundle exec rake db:migrate:reset || true
+mkdir -p tmp/{git,data/{git,git_daemon,commits}}
 SPEC_OPTS="--color --format documentation" CUCUMBER_OPTS="--color --format pretty" ELASTIC_TEST_PORT=9200 DISPLAY=localhost:1.0 xvfb-run bundle exec rake
 ```
