@@ -85,6 +85,8 @@ EXPOSE 8080
 ENTRYPOINT /bin/bash /home/jenkins/run_jenkins.bash
 CMD [""]
 
+ENV JENKINS_REFRESHED_AT="2015-10-06"
+
 # jenkins installation/update
 RUN sudo rm -f /opt/jenkins.war   # remove jenkins if it already exists
 RUN sudo wget http://mirrors.jenkins-ci.org/war/latest/jenkins.war -O /opt/jenkins.war
