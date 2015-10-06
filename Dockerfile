@@ -1,6 +1,9 @@
 FROM ubuntu:14.04
 MAINTAINER Eugen Kuksa "eugenk@cs.uni-bremen.de"
 
+# Change this in order to force rebuilding with updated packages.
+ENV REFRESHED_AT 2015-10-05
+
 RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get clean
 RUN apt-get install -y software-properties-common python-software-properties sudo wget ssh
