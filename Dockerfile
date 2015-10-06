@@ -6,7 +6,7 @@ ENV REFRESHED_AT 2015-10-05
 
 RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get clean
-RUN apt-get install -y software-properties-common python-software-properties sudo wget ssh
+RUN apt-get install -y software-properties-common sudo wget ssh
 
 # software installation
 RUN wget -qO - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
