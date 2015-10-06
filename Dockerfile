@@ -27,7 +27,7 @@ RUN apt-add-repository -y "deb http://archive.ubuntu.com/ubuntu precise-updates 
 RUN apt-get update
 RUN apt-get install -y xvfb openjdk-7-jre-headless cmake g++ pkg-config libqt4-dev libqtwebkit-dev libsane libgphoto2-l10n libpq-dev libreadline-dev
 RUN apt-get install -y git subversion git-svn nodejs postgresql-9.4 redis-server elasticsearch
-RUN apt-get install -y udrawgraph hets-core
+RUN apt-get install -y udrawgraph hets-core phantomjs libxml2-dev
 RUN apt-get clean
 
 # hets update
@@ -84,10 +84,6 @@ EXPOSE 8080
 
 ENTRYPOINT /bin/bash /home/jenkins/run_jenkins.bash
 CMD [""]
-
-# install previously missing packages
-RUN sudo apt-get update && sudo apt-get install -y libxml2-dev && sudo apt-get clean
-RUN sudo apt-get update && sudo apt-get install -y phantomjs && sudo apt-get clean
 
 # jenkins installation/update
 RUN sudo rm -f /opt/jenkins.war   # remove jenkins if it already exists
