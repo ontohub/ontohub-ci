@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RUBY_21_VERSION=2.1.5
+RUBY_21_VERSION=2.1.7
 RUBY_22_VERSION=2.2.0
 
 git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
